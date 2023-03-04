@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class SideBar extends Component {
     state = {  } 
@@ -9,38 +10,38 @@ class SideBar extends Component {
                 <ul className="sidebar-nav" id="sidebar-nav">
 
                 <li className="nav-item">
-                    <a className="nav-link collapsed" href="index.html">
-                    <i className="bi bi-grid"></i>
-                    <span>Dashboard</span>
-                    </a>
+                    <Link to="/dashboard" className="nav-link collapsed">
+                        <i className="bi bi-grid"></i>
+                        <span>Dashboard</span>
+                    </Link>
                 </li>
 
                 <li className="nav-item">
-                    <a className="nav-link collapsed" href="index.html">
-                    <i className="bi bi-menu-button-wide"></i>
-                    <span>Daily Homework</span>
-                    </a>                    
+                    <Link to="/daily-homework" className="nav-link collapsed">
+                        <i className="bi bi-menu-button-wide"></i>
+                        <span>Daily Homework</span>
+                    </Link>                    
                 </li>
 
                 <li className="nav-item">
-                    <a className="nav-link collapsed" href="index.html">
-                    <i className="bi bi-journal-text"></i>
-                    <span>Journal</span>
-                    </a>                    
+                    <Link to="/journal" className="nav-link collapsed">
+                        <i className="bi bi-journal-text"></i>
+                        <span>Journal</span>
+                    </Link>                    
                 </li>
 
                 <li className="nav-item">
-                    <a className="nav-link collapsed" href="index.html">
-                    <i className="bi bi-layout-text-window-reverse"></i>
-                    <span>Trade Bill</span>
-                    </a>                                        
+                    <Link to="/trade-bill" className="nav-link collapsed">
+                        <i className="bi bi-layout-text-window-reverse"></i>
+                        <span>Trade Bill</span>
+                    </Link>                                        
                 </li>
 
                 <li className="nav-item">
-                    <a className="nav-link collapsed" href="index.html">
-                    <i className="bi bi-bar-chart"></i>
-                    <span>Weekly Scan</span>
-                    </a>                                                            
+                    <Link to="/weekly-scan" className="nav-link collapsed">
+                        <i className="bi bi-bar-chart"></i>
+                        <span>Weekly Scan</span>
+                    </Link>         
                 </li>
 
                 </ul>

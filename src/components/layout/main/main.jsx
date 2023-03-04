@@ -1,4 +1,11 @@
 import React, { Component } from 'react';
+import {Routes, Route } from 'react-router-dom';
+import SideBar from '../sidebar/sidebar';
+import Dashboard from '../../dashboard/dashboard';
+import Journal from '../../journal/journal';
+import TradeBill from '../../trade-bill/trade-bill';
+import WeeklyScan from '../../weekly-scan/weekly-scan';
+import DailyHomework from '../../daily-homework/daily-homework';
 
 class Main extends Component {
     state = {  
@@ -18,11 +25,17 @@ class Main extends Component {
                     </nav>
                 </div>
 
-                <section className="section dashboard">
+                <section className="section">
                     <div className="row">
-
                         {/* The page content goes here */}
-
+                        <Routes>
+                            <Route path="/dashboard" element={<Dashboard/>} />
+                            <Route path="/journal" element={<Journal/>} />
+                            <Route path="/daily-homework" element={<DailyHomework/>} />
+                            <Route path="/trade-bill" element={<TradeBill/>} />
+                            <Route path="/weekly-scan" element={<WeeklyScan/>} />
+                            <Route path="/" element={<Dashboard/>} />
+                        </Routes>
                     </div>
                 </section>
 

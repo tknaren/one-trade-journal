@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
-class WeeklyScan extends Component {
+class DailyHomework extends Component {
     state = {  } 
     render() { 
         return (
-                <p>Weekly Scan</p>
+            <p>Daily Homework</p>
         );
     }
 }
  
-export default WeeklyScan;
+export default DailyHomework;
