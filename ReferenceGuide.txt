@@ -70,3 +70,103 @@ handleDelete = (counterId) => {
 	// counterId refers to specific counter component selected. this way you can identify the right counter from the array and delete it appropriately
 }
 
+-----------------------------------------------------------------------
+
+React Notes
+
+React is a tree of components		
+
+vite - is an =library to create the react templates with smaller bundle sizes
+npm create vite@4.1.0
+
+In react only one element can be returned from the function. So if you need to return multiple element, either enclose that in a <div> or use <Fragment> to enclose it
+
+------ List rendering 
+For rendering list of items use items.map(item => <li key={item.id}>{item}</li>)
+but this element is not allowed in the middle of the jsx element, in Jsx we can only use html elements or jsx components
+So enclose the map expression in braces {}
+specify the key in the li item for react to identify, otherwise it will thrw error
+
+------ Conditional rendering
+you cant use the if statement in the JSX. Use {} and ternary operator
+{ items.length === 0 ? <p> No item found </p> : null }
+you can assign this statement to a const or return using a function and replace that in the jsx
+const getMessage = () => { 
+	return items.length === 0 ? <p> No item found </p>
+}
+{ getMessage() } - we can use parameters to render different content
+If you have a boolean value and logical operator 1, the exp will return 1 if the logical operator is true
+true && '1' == 1
+
+---- Handling Events
+onClick event of the list item
+onClick={() => console.log(item, index)} == Arrow function, logs both item and its index
+you can add the event as a parameter as well, however for react you need to specify what kind of event it is
+import { MouseEvent } from "react";
+// The below code is the event handler. It handled the onclick event when a mouse is clicked on the list item
+const handleClick = (event: MouseEvent) => console.log(event);
+// you can remove the inline arrow function and use the handleClick function reference to the click event
+onClick={ handleClick }
+
+---- Managing state
+useState is the built in function inside the react, import it
+this is called as a Hook. Hook is a function that allows us to tap into the built-in features in react
+This is called as the state hook, we are telling react that this component can have data or state that will change overtime
+instead of declaring the variable, use can call the function and initialize the variable 
+const arr = useState(-1); ==> returns an array
+arr[0]
+arr[1]
+so instead of working with 2 individual elements, it is possible to destructure the elements 
+const [selectedIndex, setSelectedIndex] = useState(-1);
+selectedIndex = state variable
+setSelectedIndex = function
+another eg., const [name, setName] = useState('');
+so onClick= {() => { setSelectedIndex(index); } }	
+Each component will have its own state
+
+---- Passing data via props
+To make the component reusable
+Props are the inputs to our components
+pass an object with the properties that will replace the values as required
+create an interface and define the properties inside it
+interface Props {
+	items: string[];
+	heading: string;
+} 
+function ListGroup(props: Props) { }
+==> props can be further destructured to 
+function ListGroup({items, header }: Props) { }
+
+---- Passing functions via Props
+we can declare function inside the interface as we did for the properties
+interface Props {
+	items: string[];
+	heading: string;
+	onSelectedItem: (item: string) => void; --> method that takes a string as parameters and returns void can be passed here. So that when an associated event is trigged the function will be called
+}
+In the component that is calling the sub-component, pass the handle event method delegate to the function props
+
+---- State vs Props
+Props
+1. Inputs passed to a component
+2. Similar to function args
+3. Immutable (read-only)
+State
+1. Data managed by the component
+2. Similar to local variables
+3. Mutable (change able)
+Common
+1. anytime they change React will re-render the component and change the DOM accordingly
+
+---- Passing Children
+If you want to pass the HTML content to the compoenent,  by using the children prop
+interface Props{
+	children: ReactNode ==> ReactNode class defined in the react module
+}
+const Alert = ({ children }: Props) => {
+	return (
+		<div className="alert">{ children }</div> ==> pass the children html content to the div
+	)
+}
+
+---- React Dev tools
