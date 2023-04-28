@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button } from 'primereact/button';   
 
 class Dashboard extends Component {
     state = { 
@@ -22,6 +23,8 @@ class Dashboard extends Component {
                 <div>
                     { this.renderTags() }
                 </div>
+
+                <Button label="Check" size="sm" />
             </div>    
         );
     }

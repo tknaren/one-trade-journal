@@ -1,0 +1,72 @@
+What is the adv in developing the software?
+
+What are the issues you faced 
+
+What are the challenges you are facing now?
+
+Do you really need the software?> which is consuming lots of time to develop?
+
+Advantage being 
+
+1. Learn the entire MERN stack to develop a website and gain confidence
+2. Customized TradeMate and monitoring tools, so that position is rightly monitored and customize the strategies
+3. Journaling, right now the only option what we have in the excel thing, and that is time consuming. If we maintain the form it would be quite pleasing to enter the data anv view the performance in the charts.
+4. 
+
+
+Scan only the currencies for D1 Accelerator and come up with a plan
+Open two charts in parallel, one with D1 Acc Impulse system and other one with S4 Stan Impulse system
+Even if the D1A gives signal, decide only when the impulse satisfies
+
+
+----------------------------------------------------------------------------------
+
+Important points
+
+Counters --> Counter
+you can return only a single element within the render method. So enclose in a container <div></div>
+Array of counter objects
+
+state = { 
+	counters: [
+		{ id = 1, value = 0},
+		{ id = 1, value = 0},
+		{ id = 1, value = 0}
+	]
+}
+
+<button onClick = {this.handleClick}> Submit </button>
+
+handleClick = () => {
+	this.setState ( {value: this.state.value + 1} );
+};
+
+state = {
+	value: this.props.value
+}
+
+<div>
+	{ this.state.counter.map(counter => ( 
+		<Counter key={counter.id} value={counter.value} />
+	))}
+</div>
+
+-- React Developer tools
+	props
+	state
+	$r ==> current cursor state
+	$0 ==> current html element 
+
+Diff bet -- props vs state
+state is private and internal to a component
+props is the data that we give to a component
+
+The component that owns the piece of state should be the one modifying it
+
+Raise the event from the child and handle the event in the parent component
+Create a method in the parent component and pass the ref to the child component using props. In the child Component, on handling the event call the ref to the method from the props
+
+handleDelete = (counterId) => {
+	// counterId refers to specific counter component selected. this way you can identify the right counter from the array and delete it appropriately
+}
+
